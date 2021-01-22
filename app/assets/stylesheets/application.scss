@@ -16,3 +16,22 @@
 
 @import "bootstrap";
 @import "trix/dist/trix";
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
+
+.destroy_class{
+	color: red;
+	margin-left: 11px;
+	margin-top: 14px;
+}
+
+.list_class{
+	list-style: none;
+	display: flex;
+	padding-bottom: 12px;
+}

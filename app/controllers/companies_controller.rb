@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    flash[:notice] = 'Success'
   end
 
   def new
@@ -29,8 +30,15 @@ class CompaniesController < ApplicationController
       redirect_to companies_path, notice: "Changes Saved"
     else
       render :edit
+      flash[:alert] = @company.errors.messages
     end
   end  
+
+  def destroy
+    @company.destroy
+    flash[:alert] = 'Successfully Deleted'
+    redirect_to companies_path
+  end
 
   private
 
@@ -43,6 +51,9 @@ class CompaniesController < ApplicationController
       :phone,
       :email,
       :owner_id,
+      :city,
+      :state,
+      :color,
       services: []
     )
   end

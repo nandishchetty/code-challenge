@@ -6,9 +6,11 @@
   <% else %>
     <ul class="list-group my-5">
       <% @companies.each do |company| %>
-        <a href="<%= company_path(company) %>" class="list-group-item list-group-item-action">
+        <li class = 'list_class' ><a href="<%= company_path(company) %>" class="list-group-item list-group-item-action">
           <%= company.name %>
         </a>
+        <%= link_to ('<i class="fa fa-trash destroy_class", title = "Delete"></i>').html_safe, company_path(company.id), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
+        </li>
       <% end %>
     </ul>
   <% end %>

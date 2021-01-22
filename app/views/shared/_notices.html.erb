@@ -2,7 +2,17 @@
   <div class="alert <%= bootstrap_class_for(msg_type) %>" id="alert_message"  >
     <div class="container">
       <button class="close" data-dismiss="alert"><span>×</span></button>
-      <%= message.html_safe %>
+      <% if message.html_safe? %>
+        <%= message.html_safe %>
+      <% elsif flash[:alert].present? %>
+         <% flash[:alert].each do |key, value| %>
+           <% if value.first.present? %>
+           <%= "#{key.capitalize} #{value.first}" %></br>
+           <% end %>
+         <% end %>
+      <% elsif flash[:notice].present? %>
+        <%= flash[:notice] %>
+      <% end %>
     </div>
   </div>
 <% end %>

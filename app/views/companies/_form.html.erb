@@ -35,6 +35,18 @@
       </div>
     </div>
 
+    <div class="row my-lg-3">
+      <div class="col-lg-3">
+        <label><strong>color</strong><br><small class="text-muted">Pick the color</small></label>
+      </div>
+      <div class="col-lg offset-lg-1">
+        <div class="form-group">
+          <input type="color" id="favcolor" name="favcolor" value="#FFFFFF"><br><br>
+          <%= f.hidden_field :color, id: 'color', value: '#FFFFFF' %>
+        </div>
+      </div>
+    </div>
+
 
     <div class="row my-lg-3">
       <div class="col-lg-3">
@@ -53,7 +65,7 @@
       </div>
       <div class="col-lg offset-lg-1">
         <div class="form-group">
-          <%= f.text_field :email, class: "form-control", placeholder: "hello@company.com"%>
+          <%= f.email_field :email, class: "form-control", placeholder: "hello@company.com"%>
         </div>
       </div>
     </div>
@@ -78,3 +90,13 @@
     </div>
   <% end %>
 </div>
+
+<script>
+var theInput = document.getElementById("favcolor");
+   var theColor = theInput.value;
+   theInput.addEventListener("input", function() {
+
+     document.getElementById("color").value = document.getElementById("favcolor").value
+
+    }, false);
+</script>
